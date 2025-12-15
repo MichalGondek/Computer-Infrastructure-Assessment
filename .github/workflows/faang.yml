@@ -5,7 +5,7 @@ name: Run FAANG Data Script # Set name of worklow as it appears in GitHub Action
 # Cron Reference: https://crontab.guru/
 on:
     schedule:
-        - cron: '56 13 * 12 *'
+        - cron: '0 9 * * 6'
 
 # Using Jobs to define the job called run-faang-script
 # Specifies that the job will run on the latest version of Ubuntu available in GitHub Actions
@@ -37,3 +37,5 @@ jobs:
       run: |
         chmod +x faang.py  
         ./faang.py  
+        workflow_dispatch
+        
