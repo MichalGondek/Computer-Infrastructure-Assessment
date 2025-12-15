@@ -4,6 +4,7 @@ name: Run FAANG Data Script # Set name of worklow as it appears in GitHub Action
 # '0 9 * * 6' means at 09:00 AM every Saturday - This runs the workflow every Saturday at 9:00 AM UTC
 # Cron Reference: https://crontab.guru/
 on:
+    workflow_dispatch:
     schedule:
         - cron: '0 9 * * 6'
 
@@ -37,5 +38,4 @@ jobs:
       run: |
         chmod +x faang.py  
         ./faang.py  
-        workflow_dispatch
-        
+       
