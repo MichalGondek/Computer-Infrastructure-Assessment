@@ -69,6 +69,7 @@ def plot_data():
             sub = df[df['Ticker'] == ticker]
             plt.plot(sub['Datetime'], sub['Close'], label=ticker)
 
+
     plt.xlabel('Datetime')
     plt.ylabel('Closing Price (USD)')
     plt.title('FAANG Stock Prices - Last 5 Days (Hourly)')
@@ -89,5 +90,4 @@ def plot_data():
 if __name__ == "__main__":
     csv_file = get_data()
     plot_data()
-    
     

@@ -1,0 +1,39 @@
+name: Run FAANG Data Script # Set name of worklow as it appears in GitHub Actions UI
+
+# Schedule uses cron to run the worklow auttomatically
+# '0 9 * * 6' means at 09:00 AM every Saturday - This runs the workflow every Saturday at 9:00 AM UTC
+# Cron Reference: https://crontab.guru/
+on:
+    schedule:
+        - cron: '0 9 * * 6' 
+
+# Using Jobs to define the job called run-faang-script
+# Specifies that the job will run on the latest version of Ubuntu available in GitHub Actions
+# Reference for ubuntu: https://ubuntu.com/
+jobs:
+  run-faang-script:
+    runs-on: ubuntu-latest
+
+# Use steps to define the sequence of tasks to be performed in the job
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v5
+
+# Install Python 3.12 and required dependencies, then run the faang.py script
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.12' 
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install yfinance pandas matplotlib
+
+# Run Script 
+# Use chomod to make the script executable and then execute it
+# ./faang.py downloads FAANG stock data and runs the script in the current directory
+    - name: Run FAANG script
+      run: |
+        chmod +x faang.py  
+        ./faang.py  
