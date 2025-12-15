@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+# Problem 3: Script
 # Create a Python script called faang.py in the root of your repository
 # Copy the above functions into it and make it so that whenever someone at the terminal types ./faang.py
 # The script runs, downloading the data and creating the plot.

@@ -1,3 +1,5 @@
+# Problem 4 Automation
+
 name: Run FAANG Data Script # Set name of worklow as it appears in GitHub Actions UI
 
 # Schedule uses cron to run the worklow auttomatically
